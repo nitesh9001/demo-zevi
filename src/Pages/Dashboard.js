@@ -1,13 +1,21 @@
-import React,{ useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../component/Sidebar';
 import Card from '../component/Card';
 import { arryOfproduct } from '../Utils/Constant';
+import { useDispatch, useSelector } from "react-redux";
+import { PRODUCT_LIST } from '../Redux/Slice/Product';
 
 const Dashboard = () => {
-    let productData = arryOfproduct;
+    let productData = useSelector(state => state.product?.data);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(PRODUCT_LIST({data: arryOfproduct}))
+    },[]);
+
+    console.log(productData)
 
     const handleFilter = () => {};
-    
     return (
         <div className="main_wrapper_content">
             <div className="main_wrapper_sidebar">

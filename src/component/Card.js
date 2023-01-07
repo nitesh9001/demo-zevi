@@ -6,11 +6,6 @@ const Card = (props) => {
   let data = props?.data;
   const [wishList,  setWishList] = useState(false);
   
-  data["ratings"] = {
-    rating: parseInt(Math.random() * (5)) + 1,
-    count:  parseInt(Math.random() * 1000)
-  }
-  
   return (
     <div className="card">
         <div className="card_inner" >
@@ -25,10 +20,10 @@ const Card = (props) => {
           <div style={{margin: "10px auto"}}>
             {data?.price?.previous?.value !== null ? 
               <>
-                <b className="previous_price">Rs. {data?.price?.previous?.text} {"  "}</b>
-                <b className="current_price">Rs. {data?.price?.current?.text}</b>
+                <b className="previous_price">Rs. {data?.price?.previous?.value} {"  "}</b>
+                <b className="current_price">Rs. {data?.price?.current?.value}</b>
               </> :
-              <b className="current_price">Rs. {data?.price?.current?.text} </b>
+              <b className="current_price">Rs. {data?.price?.current?.value} </b>
             }
           </div>
           <div className='card-rating-count'>

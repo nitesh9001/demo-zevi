@@ -209,7 +209,7 @@ body{
   height: 90vh;
   padding-left: 30px;
   padding-right: 30px;
-  // overflow-y: scroll;
+  overflow-y: scroll;
 }
 .main_side_bar_first{
   width: 100%;
@@ -242,6 +242,7 @@ body{
   width: 100%;
   margin: 0 auto;
   padding: 10px 1px;
+  text-transform: capitalize;
   border-bottom: 1px solid var(--border_col);
 }
 .speration-top{

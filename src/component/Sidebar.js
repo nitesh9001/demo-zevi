@@ -2,15 +2,51 @@ import React,{useState, useEffect} from 'react'
 import ArrowDropDown from '@mui/icons-material/KeyboardArrowDown';
 import ArrowDropUp from '@mui/icons-material/KeyboardArrowUp';
 import { Rating } from '@mui/material';
+import { useDispatch, useSelector } from "react-redux";
+import { PRODUCT_LIST } from '../Redux/Slice/Product';
+import { arryOfproduct } from '../Utils/Constant';
+import { CATEGORY_LIST } from '../Redux/Slice/Category';
 
 const Sidebar = (props) => {
-    const [filterSize, setFilterSize] = useState([]);
+    const productData = useSelector(state => state.product?.data);
+    const category = useSelector(state => state?.category?.data);
+    const ratingArray = [5, 4, 3, 2, 1];
+    const dispatch = useDispatch();
+
     const [openDropBrand, setOpenDropBrand] = useState(true);
     const [openDropPrice, setOpenDropPrice] = useState(true);
     const [openDropRating, setOpenDropRating] = useState(true);
     const [brand, setBrand] = useState('');
     const [price, setPrice] = useState('');
     const [ratings, setRating] = useState('');
+
+    useEffect(() => {
+        const dataCategory = [];
+        arryOfproduct.forEach((d) => {
+            if(!dataCategory.includes(d.brandName))
+              dataCategory.push(d.brandName)
+        });
+        dispatch(CATEGORY_LIST({data: dataCategory}))
+    },[]);
+
+    useEffect(() => {
+        var filteredData = arryOfproduct;
+        if(brand.length > 0){
+          filteredData = filteredData.filter((d) => d.brandName == brand);
+        }
+        if(ratings.length > 0){
+          filteredData = filteredData.filter((d) => d.ratings?.rating == ratings);
+        }
+        if(price.length > 0){
+            const min = price.split("-")[0];
+            const max = price.split("-")[1];
+            filteredData = filteredData.filter((d) => {
+                console.log(min, max, d.price?.value)
+                return d.price?.current.value > min && d.price?.current.value < max
+            });
+        }
+        dispatch(PRODUCT_LIST({data: filteredData}));
+    },[brand, ratings, price])
 
     return (
         <div className="main_side_bar_element">
@@ -29,13 +65,30 @@ const Sidebar = (props) => {
                 </div>
                 {openDropBrand && <div>
                 <div className="radio_selector">
-                    <label className="container_radio">
+                    {category && category?.length > 0 && category.map(d => 
+                        <label className="container_radio" key={d}>
                         <input 
-                            type="radio" 
-
-                            value={"mango"} 
-                            onChange={(e) => setBrand(e.target.value)} 
-                            checked={brand === "mango"}/>
+                            type="radio"
+                            value={d}
+                            onChange={(e) => {
+                                    setBrand(e.target.value);
+                            }}
+                            checked={brand === d}/>
+                            <span className="checkmark"></span>
+                            <span className="label_radio">
+                              {d}
+                            </span>
+                        </label>
+                    )}
+                    {/* <label className="container_radio">
+                        <input 
+                            type="radio"
+                            value={"Under Armour"} 
+                            onChange={(e) => {
+                                    setBrand(e.target.value);
+                                    filterData(e.target.value, "brand")
+                            }}
+                            checked={brand === "Under Armour"}/>
                             <span className="checkmark"></span>
                             <span className="label_radio">
                                 Mango
@@ -52,7 +105,7 @@ const Sidebar = (props) => {
                         <span className="label_radio">
                             H & M
                         </span>
-                    </label>
+                    </label> */}
                 </div>
                 </div>
                 }
@@ -72,9 +125,9 @@ const Sidebar = (props) => {
                     <label className="container_radio">
                     <input 
                     type="radio"
-                    value={"500"} 
+                    value={"0-500"} 
                     onChange={(e) => setPrice(e.target.value)} 
-                    checked={price === "500"}/>
+                    checked={price === "0-500"}/>
                     <span className="checkmark"></span>
                     <span className="label_radio">
                         Under 500
@@ -83,13 +136,25 @@ const Sidebar = (props) => {
                     <label className="container_radio">
                         <input 
                         type="radio" 
-                        value={"1000"} 
+                        value={"1000-3000"} 
                         onChange={(e) => setPrice(e.target.value)} 
-                        checked={price === "1000"}
+                        checked={price === "1000-3000"}
                         />
                         <span className="checkmark"></span>
                         <span className="label_radio">
-                            1000 TO 3000
+                            1000 to 3000
+                        </span>
+                    </label>
+                    <label className="container_radio">
+                        <input 
+                        type="radio" 
+                        value={"4000-10000"}
+                        onChange={(e) => setPrice(e.target.value)} 
+                        checked={price === "4000-10000"}
+                        />
+                        <span className="checkmark"></span>
+                        <span className="label_radio">
+                            Above 4000
                         </span>
                     </label>
                 </div>
@@ -109,65 +174,21 @@ const Sidebar = (props) => {
                 </div>
                 {openDropRating && <div>
                 <div className="radio_selector">
-                    <label className="container_radio">
-                    <input 
-                    type="radio"
-                    value={"5"} 
-                    onChange={(e) => setRating(e.target.value)} 
-                    checked={ratings === "5"}/>
-                    <span className="checkmark"></span>
-                    <span className="label_radio">
-                        <Rating name="read-only" value={5} readOnly />
-                    </span>
-                    </label>
-                    <label className="container_radio">
+                    {ratingArray?.map(d => 
+                     <label className="container_radio">
                         <input 
-                        type="radio" 
-                        value={"4"} 
-                        onChange={(e) => setRating(e.target.value)} 
-                        checked={ratings === "4"}
-                        />
+                        type="radio"
+                        value={d} 
+                        onChange={(e) => {
+                            setRating(e.target.value)
+                        }} 
+                        checked={parseInt(ratings) === d}/>
                         <span className="checkmark"></span>
                         <span className="label_radio">
-                            <Rating name="read-only" value={4} readOnly />
+                            <Rating name="read-only" value={d} readOnly />
                         </span>
-                    </label>
-                    <label className="container_radio">
-                        <input 
-                        type="radio" 
-                        value={"3"} 
-                        onChange={(e) => setRating(e.target.value)} 
-                        checked={ratings === "3"}
-                        />
-                        <span className="checkmark"></span>
-                        <span className="label_radio">
-                            <Rating name="read-only" value={3} readOnly />
-                        </span>
-                    </label>
-                    <label className="container_radio">
-                        <input 
-                        type="radio" 
-                        value={"2"} 
-                        onChange={(e) => setRating(e.target.value)} 
-                        checked={ratings === "2"}
-                        />
-                        <span className="checkmark"></span>
-                        <span className="label_radio">
-                            <Rating name="read-only" value={2} readOnly />
-                        </span>
-                    </label>
-                    <label className="container_radio">
-                        <input 
-                        type="radio" 
-                        value={"1"} 
-                        onChange={(e) => setRating(e.target.value)} 
-                        checked={ratings === "1"}
-                        />
-                        <span className="checkmark"></span>
-                        <span className="label_radio">
-                            <Rating name="read-only" value={1} readOnly />
-                        </span>
-                    </label>
+                     </label>
+                    )}
                 </div>
                 </div>
                 }
