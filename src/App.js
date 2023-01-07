@@ -3,16 +3,20 @@ import Header from "./component/Header";
 import './App.scss';
 
 const  App = (props) => {
+    const pathName = window.location.pathname;
+    console.log(pathName)
     return (
       <div className="app">
         <div className="overlays">
-          <div>
+          {pathName !== "/" ? <div>
             <Header />
-          </div>
+          </div> : 
+          <div></div>
+          }
           <div>
             {props.children}
           </div>
-          </div>
+        </div>
       </div>
     );
   }

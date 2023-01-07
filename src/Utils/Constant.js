@@ -1776,3 +1776,161 @@ export const arryOfproduct = [
         }
     }
 ]
+
+export const latestProduct = [ {
+    "id": 203420206,
+    "name": "South Beach zip through waffle hoodie in gray",
+    "price": {
+        "current": {
+            "value": 4400,
+            "text": "Rs. 4400.00"
+        },
+        "previous": {
+            "value": null,
+            "text": ""
+        },
+        "rrp": {
+            "value": null,
+            "text": ""
+        },
+        "isMarkedDown": false,
+        "isOutletPrice": false,
+        "currency": "USD"
+    },
+    "colour": "Gray",
+    "colourWayId": 203420212,
+    "brandName": "South Beach",
+    "hasVariantColours": false,
+    "hasMultiplePrices": false,
+    "groupId": null,
+    "productCode": 121131262,
+    "productType": "Product",
+    "url": "south-beach/south-beach-zip-through-waffle-hoodie-in-gray/prd/203420206?clr=gray&colourWayId=203420212",
+    "imageUrl": "images.asos-media.com/products/south-beach-zip-through-waffle-hoodie-in-gray/203420206-1-grey",
+    "videoUrl": null,
+    "isSellingFast": false,
+    "sponsoredCampaignId": null,
+    "facetGroupings": [],
+    "ratings": {
+        "rating": 4,
+        "count": 766
+    }
+},{
+    "id": 202818923,
+    "name": "adidas Originals x Jeremy Scott Rally track top in black and multi",
+    "price": {
+        "current": {
+            "value": 1200,
+            "text": "Rs. 1200.00"
+        },
+        "previous": {
+            "value": 1500,
+            "text": "Rs. 1500.00"
+        },
+        "rrp": {
+            "value": null,
+            "text": ""
+        },
+        "isMarkedDown": false,
+        "isOutletPrice": false,
+        "currency": "USD"
+    },
+    "colour": "Black",
+    "colourWayId": 202818929,
+    "brandName": "adidas Originals",
+    "hasVariantColours": false,
+    "hasMultiplePrices": false,
+    "groupId": null,
+    "productCode": 118738919,
+    "productType": "Product",
+    "url": "adidas-originals/adidas-originals-x-jeremy-scott-rally-track-top-in-black-and-multi/prd/202818923?clr=black&colourWayId=202818929",
+    "imageUrl": "images.asos-media.com/products/adidas-originals-x-jeremy-scott-rally-track-top-in-black-and-multi/202818923-1-black",
+    "videoUrl": null,
+    "isSellingFast": false,
+    "sponsoredCampaignId": null,
+    "facetGroupings": [],
+    "ratings": {
+        "rating": 3,
+        "count": 59
+    }
+},
+{
+    "id": 202958885,
+    "name": "adidas Originals 6-pack quarter socks in white",
+    "price": {
+        "current": {
+            "value": 200,
+            "text": "Rs. 200.00"
+        },
+        "previous": {
+            "value": 220,
+            "text": "Rs. 220.00"
+        },
+        "rrp": {
+            "value": null,
+            "text": ""
+        },
+        "isMarkedDown": false,
+        "isOutletPrice": false,
+        "currency": "USD"
+    },
+    "colour": "White",
+    "colourWayId": 202958897,
+    "brandName": "adidas Originals",
+    "hasVariantColours": false,
+    "hasMultiplePrices": false,
+    "groupId": null,
+    "productCode": 119173700,
+    "productType": "Product",
+    "url": "adidas-originals/adidas-originals-6-pack-quarter-socks-in-white/prd/202958885?clr=white&colourWayId=202958897",
+    "imageUrl": "images.asos-media.com/products/adidas-originals-6-pack-quarter-socks-in-white/202958885-1-white",
+    "videoUrl": null,
+    "isSellingFast": false,
+    "sponsoredCampaignId": null,
+    "facetGroupings": [],
+    "ratings": {
+        "rating": 2,
+        "count": 373
+    }
+},
+{
+    "id": 202973591,
+    "name": "Nike Openhole mesh shapes 6inch short in sail cream",
+    "price": {
+        "current": {
+            "value": 605,
+            "text": "Rs. 605.00"
+        },
+        "previous": {
+            "value": null,
+            "text": ""
+        },
+        "rrp": {
+            "value": null,
+            "text": ""
+        },
+        "isMarkedDown": false,
+        "isOutletPrice": false,
+        "currency": "USD"
+    },
+    "colour": "WHITE",
+    "colourWayId": 202973593,
+    "brandName": "Nike",
+    "hasVariantColours": false,
+    "hasMultiplePrices": false,
+    "groupId": null,
+    "productCode": 119231591,
+    "productType": "Product",
+    "url": "nike/nike-openhole-mesh-shapes-6inch-short-in-sail-cream/prd/202973591?clr=white&colourWayId=202973593",
+    "imageUrl": "images.asos-media.com/products/nike-openhole-mesh-shapes-6inch-short-in-sail-cream/202973591-1-white",
+    "videoUrl": null,
+    "isSellingFast": false,
+    "sponsoredCampaignId": null,
+    "facetGroupings": [],
+    "ratings": {
+        "rating": 4,
+        "count": 382
+    }
+}]
+
+export const popularProducts = ['Striped shirts dress', 'Satin shirts', 'Denim jumpsuit', 'Leather jacket', 'Ethenic kurta']

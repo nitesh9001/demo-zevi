@@ -1,11 +1,11 @@
 import { Rating } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Card = (props) => {
   let data = props?.data;
   const [wishList,  setWishList] = useState(false);
-  
+ 
   return (
     <div className="card">
         <div className="card_inner" >

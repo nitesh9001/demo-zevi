@@ -8,7 +8,6 @@ import { arryOfproduct } from '../Utils/Constant';
 import { CATEGORY_LIST } from '../Redux/Slice/Category';
 
 const Sidebar = (props) => {
-    const productData = useSelector(state => state.product?.data);
     const category = useSelector(state => state?.category?.data);
     const ratingArray = [5, 4, 3, 2, 1];
     const dispatch = useDispatch();
@@ -20,6 +19,12 @@ const Sidebar = (props) => {
     const [price, setPrice] = useState('');
     const [ratings, setRating] = useState('');
 
+    const clearFilter = () => {
+        dispatch(PRODUCT_LIST({data: arryOfproduct}));
+        setPrice("");
+        setRating('');
+        setBrand('')
+    }
     useEffect(() => {
         const dataCategory = [];
         arryOfproduct.forEach((d) => {
@@ -80,32 +85,6 @@ const Sidebar = (props) => {
                             </span>
                         </label>
                     )}
-                    {/* <label className="container_radio">
-                        <input 
-                            type="radio"
-                            value={"Under Armour"} 
-                            onChange={(e) => {
-                                    setBrand(e.target.value);
-                                    filterData(e.target.value, "brand")
-                            }}
-                            checked={brand === "Under Armour"}/>
-                            <span className="checkmark"></span>
-                            <span className="label_radio">
-                                Mango
-                            </span>
-                    </label>
-                    <label className="container_radio">
-                        <input 
-                        type="radio" 
-                        value={"h&m"} 
-                        onChange={(e) => setBrand(e.target.value)} 
-                        checked={brand === "h&m"}
-                        />
-                        <span className="checkmark"></span>
-                        <span className="label_radio">
-                            H & M
-                        </span>
-                    </label> */}
                 </div>
                 </div>
                 }
@@ -161,7 +140,6 @@ const Sidebar = (props) => {
                 </div>
                 }
             </div>
-
             <div className="speration-top">
                 <div className="main_side_bar_second">
                 <button onClick={() => setOpenDropRating(!openDropRating)}>
@@ -175,7 +153,7 @@ const Sidebar = (props) => {
                 {openDropRating && <div>
                 <div className="radio_selector">
                     {ratingArray?.map(d => 
-                     <label className="container_radio">
+                     <label className="container_radio" key={d}>
                         <input 
                         type="radio"
                         value={d} 
@@ -193,6 +171,7 @@ const Sidebar = (props) => {
                 </div>
                 }
             </div>
+            <button className='clearFilter' onClick={() => clearFilter()}>Clear filter</button>
            </div>
     );
 }
