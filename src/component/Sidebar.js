@@ -77,7 +77,7 @@ const Sidebar = (props) => {
                             onChange={(e) => {
                                     setBrand(e.target.value);
                             }}
-                            checked={brand === d}/>
+                            checked={brand == d}/>
                             <span className="checkmark"></span>
                             <span className="label_radio">
                               {d}
@@ -105,7 +105,7 @@ const Sidebar = (props) => {
                     type="radio"
                     value={"0-500"} 
                     onChange={(e) => setPrice(e.target.value)} 
-                    checked={price === "0-500"}/>
+                    checked={price == "0-500"}/>
                     <span className="checkmark"></span>
                     <span className="label_radio">
                         Under 500
@@ -116,7 +116,7 @@ const Sidebar = (props) => {
                         type="radio" 
                         value={"1000-3000"} 
                         onChange={(e) => setPrice(e.target.value)} 
-                        checked={price === "1000-3000"}
+                        checked={price == "1000-3000"}
                         />
                         <span className="checkmark"></span>
                         <span className="label_radio">
@@ -128,7 +128,7 @@ const Sidebar = (props) => {
                         type="radio" 
                         value={"4000-10000"}
                         onChange={(e) => setPrice(e.target.value)} 
-                        checked={price === "4000-10000"}
+                        checked={price == "4000-10000"}
                         />
                         <span className="checkmark"></span>
                         <span className="label_radio">
@@ -159,7 +159,7 @@ const Sidebar = (props) => {
                         onChange={(e) => {
                             setRating(e.target.value)
                         }} 
-                        checked={parseInt(ratings) === d}/>
+                        checked={parseInt(ratings) == d}/>
                         <span className="checkmark"></span>
                         <span className="label_radio">
                             <Rating name="read-only" value={d} readOnly />

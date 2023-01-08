@@ -2,12 +2,11 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search'
 import LOGO from '../Assets/Images/logo.png';
 import { arryOfproduct } from '../Utils/Constant';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { PRODUCT_LIST } from '../Redux/Slice/Product';
 
 function Header(props) {
     const dispatch = useDispatch();
-    const productArray = useSelector(state => state?.product?.data);
 
     const onSearch  = (e) => {
         var filteredData = arryOfproduct;
