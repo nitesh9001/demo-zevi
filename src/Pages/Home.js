@@ -8,7 +8,6 @@ function Home() {
     const [openSeachTab, setOpenSearch] = useState(false);
     
     const handleClick = (e) => {
-        console.log("ref", ref.current, e.target, ref.current?.contains(e.target))
         if (!ref.current?.contains(e.target)) {
           setOpenSearch(false);
         }

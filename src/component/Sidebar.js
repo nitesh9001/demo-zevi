@@ -21,9 +21,9 @@ const Sidebar = (props) => {
 
     const clearFilter = () => {
         dispatch(PRODUCT_LIST({data: arryOfproduct}));
-        setPrice("");
+        setPrice('');
         setRating('');
-        setBrand('')
+        setBrand('');
     }
     useEffect(() => {
         const dataCategory = [];
@@ -46,7 +46,6 @@ const Sidebar = (props) => {
             const min = price.split("-")[0];
             const max = price.split("-")[1];
             filteredData = filteredData.filter((d) => {
-                console.log(min, max, d.price?.value)
                 return d.price?.current.value > min && d.price?.current.value < max
             });
         }

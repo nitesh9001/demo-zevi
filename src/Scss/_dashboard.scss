@@ -1,0 +1,42 @@
+.app {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.overlays-dashboard {
+    height: 100%;
+    overflow-y: hidden
+}
+
+.main_wrapper_content {
+    width: 100%;
+    margin: 0 auto;
+    @include display_flex;
+}
+
+.main_wrapper_sidebar {
+    width: 25%;
+}
+
+.main_card_wrap_section {
+    width: 75%;
+    height: 80vh;
+    margin: 0px auto;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    @include display_grid
+}
+
+.main_card_wrap {
+    width: 90%;
+    margin-bottom: 40px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    @include display_flex;
+    justify-content: flex-start;
+}

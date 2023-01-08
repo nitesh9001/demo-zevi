@@ -1,10 +1,9 @@
 import React from "react";
 import Header from "./component/Header";
-import './App.scss';
+import './Scss/main.scss';
 
 const  App = (props) => {
     const pathName = window.location.pathname;
-    console.log(pathName)
     return (
       <div className="app">
         <div className="overlays">

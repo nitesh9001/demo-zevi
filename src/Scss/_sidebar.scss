@@ -1,0 +1,152 @@
+@import './variables';
+@import './mixins';
+
+/* side bar css */
+.main_side_bar_element {
+    height: 90vh;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-y: scroll;
+}
+
+.main_side_bar_first {
+    width: 100%;
+    margin: 20px auto;
+    p {
+        font-size: 35px;
+    }
+}
+
+.main_side_bar_second {
+    width: 100%;
+    height: 40px;
+    padding: 10px auto;
+    button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 100%;
+        margin: 0 auto;
+        @include display_flex;
+    }
+}
+
+.radio_selector {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 1px;
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--border_col);
+    @include display_grid;
+    align-items: flex-start;
+}
+
+.speration-top {
+    margin-top: 20px;
+}
+
+.MuiRating-root {
+    font-size: 18px !important;
+}
+
+/* checkbox custom */
+
+.container_radio {
+    position: relative;
+    margin-bottom: 18px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include display_flex;
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    &:hover input~.checkmark {
+        background-color: $bg-color;
+    }
+    input:checked~.checkmark {
+        background-color: $heading-text-color;
+    }
+    
+    input:checked~.checkmark:after {
+        display: block;
+    }
+    .checkmark:after {
+        top: 4px;
+        left: 4px;
+        width: 6px;
+        height: 6px;
+        border-radius: 20%;
+        background: $primary-color;
+    }
+}
+
+.label_radio {
+    font-size: 16px;
+    margin-left: 25px;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 20;
+    left: 20;
+    height: 14px;
+    width: 14px;
+    background-color: $primary-color;
+    border-radius: 20%;
+    border: 1px solid grey;
+    &::after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+}
+
+.main_side_bar_size {
+    width: 80%;
+    border-bottom: 1px solid var(--border_col);
+    height: auto;
+    padding: 20px auto;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    @include display_flex;
+    justify-content: start;
+}
+
+.main_wrapper_sidebar_mb {
+    display: none;
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 20px;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.drop-down-filter {
+    width: 60%;
+    // height: 40vh;
+    top: 30px;
+    right: 0px;
+    position: absolute;
+    background: $bg-color;
+    z-index: 10;
+}
+
+.clearFilter {
+    border: 1px solid $heading-text-color;
+    background: transparent;
+    padding: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+}
