@@ -1,4 +1,3 @@
-/* css for card */
 @import './variables';
 @import './mixins';
 
@@ -59,7 +58,8 @@
 }
 
 .card-rating-count {
-   @include display_flex
+   @include display_flex;
+   justify-content: flex-start;
 }
 
 .span-count {
